@@ -124,3 +124,8 @@ composer init
 对于 url 解析，提供 `getPath` 和 `getMethod` 方法，其中 `getPaht` 获取路径
 `getMethod` 解析为 get 或者 post 方法
 
+
+### 处理未注册页面(unregistpage)
+返回 状态码为 200
+
+### 定义控制器(Controller)
