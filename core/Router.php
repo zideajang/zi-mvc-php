@@ -39,7 +39,7 @@ namespace app\core;
         //获取 url 的路径
         $path = $this->request->getPath();
         //获取 url 的请求方式包括 get 和 post
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
 
         //获取请求 url 对应的回调函数
         $callback = $this->routes[$method][$path] ?? false;
@@ -48,7 +48,7 @@ namespace app\core;
         if($callback === false){
             // Utility::show($_SERVER);
             $this->response->setStatusCode(404);
-            return $this->renderContent('没有找到该页面');
+            return $this->renderView('_404');
             // return "Not found";
         }
         
@@ -57,15 +57,19 @@ namespace app\core;
             return $this->renderView($callback);
         }
 
+        if(is_array($callback)){
+            $callback[0] = new $callback[0];
+        }
+
         //执行回调函数
-        return call_user_func($callback);
+        return call_user_func($callback,$this->request);
 
     }
 
-    public function renderView($view)
+    public function renderView($view,$params = [])
     {
         $layoutContent = $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view);
+        $viewContent = $this->renderOnlyView($view,$params);
         return str_replace('{{content}}', $viewContent,$layoutContent);
         //根据指定视图名称在 views 文件夹下找到对应 php 文件来加载
         // include_once Application::$ROOT_DIR . "/views/$view.php";
@@ -87,8 +91,12 @@ namespace app\core;
         return ob_get_clean();
     }
 
-    protected function renderOnlyView($view)
+    protected function renderOnlyView($view,$params)
     {
+        // Utility::show($params);
+        foreach($params as $key => $value){
+            $$key = $value;
+        }
         ob_start();
         //获取布局的 php 文件
         include_once Application::$ROOT_DIR . "/views/$view.php";

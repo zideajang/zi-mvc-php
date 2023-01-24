@@ -9,5 +9,6 @@ class Utility{
         echo "<pre>";
         echo var_dump($stuff);
         echo "</prd>";
+        exit;
     }
 }

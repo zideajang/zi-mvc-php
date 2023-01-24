@@ -26,8 +26,34 @@ namespace app\core;
         return $path;
     }
 
-    public function getMethod()
+    public function method()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
+    }
+
+    public function getBody()
+    {
+        $body = [];
+
+        if($this->method() === 'get'){
+            foreach($_GET as $key => $value)
+            {
+                $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            }
+        }
+        if($this->method() === 'post'){
+            foreach($_POST as $key => $value){
+                // INPUT_POST 指定输入类型
+                // $key 执行输入变量 $key=>$value
+                // 指定过滤器
+                // Utility::show(INPUT_POST);
+                $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            }
+        }
+        Utility::show($body);
+        return $body;
+
+        // Utility::show($body);
+
     }
  }

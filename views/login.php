@@ -1,4 +1,4 @@
-<h1 class="title">Contact page</h1>
+<h1 class="title">登录</h1>
 <form action="" method="post" class="section">
 <div class="field">
   <label class="label">标题</label>

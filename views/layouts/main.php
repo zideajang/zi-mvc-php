@@ -27,22 +27,22 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="/">
-                    Home
+                    主页
                 </a>
 
                 <a class="navbar-item" href="/contact">
-                    Contact
+                    联系我们
                 </a>
             </div>
 
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
+                        <a class="button is-primary" href="/register">
+                            <strong>注册</strong>
                         </a>
-                        <a class="button is-light">
-                            Log in
+                        <a class="button is-light" href="/login">
+                            登录
                         </a>
                     </div>
                 </div>
