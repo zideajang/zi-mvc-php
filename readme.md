@@ -134,3 +134,7 @@ composer init
 
 ### TODO
 return 出现外部调用输出 rec
+auth2.0 jwt
+多级域名路由授权
+
+

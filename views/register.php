@@ -1,14 +1,14 @@
 <h1 class="title">注册</h1>
 <form action="" method="post" class="section">
 <div class="field">
-  <label class="label">标题</label>
+  <label class="label">用户名</label>
   <div class="control">
-    <input class="input" type="text" name="subject" placeholder="请输出用户名称">
+    <input class="input" type="text" name="username" placeholder="请输出用户名称">
   </div>
 </div>
 
 <div class="field">
-  <label class="label">用户邮件</label>
+  <label class="label">邮件地址</label>
   <div class="control has-icons-left has-icons-right">
     <input name="email" class="input is-success" type="email" placeholder="Text input" value="请输入有效邮件地址">
   </div>
@@ -17,11 +17,20 @@
 </div>
 
 <div class="field">
-  <label class="label">内容</label>
+  <label class="label">密码</label>
   <div class="control has-icons-left has-icons-right">
-    <textarea  name="body" class="textarea"  placeholder="请输入内容" ></textarea>
+    <input name="password" class="input is-success" type="password" placeholder="Text input" value="请输入密码">
   </div>
- 
+  <!-- <p class="help is-danger">This email is invalid</p> -->
+  <!-- <p class="help is-success">This username is available</p> -->
+</div>
+<div class="field">
+  <label class="label">确认密码</label>
+  <div class="control has-icons-left has-icons-right">
+    <input name="confirmPassword" class="input is-success" type="password" placeholder="Text input" value="请输入确认密码">
+  </div>
+  <!-- <p class="help is-danger">This email is invalid</p> -->
+  <!-- <p class="help is-success">This username is available</p> -->
 </div>
 
 <div class="field is-grouped">

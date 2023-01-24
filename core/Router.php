@@ -58,7 +58,10 @@ namespace app\core;
         }
 
         if(is_array($callback)){
-            $callback[0] = new $callback[0];
+            // 通过$callback 方法实际上是一个 controller 实例
+        
+            Application::$app->controller = new $callback[0]();
+            $callback[0] = Application::$app->controller;
         }
 
         //执行回调函数
@@ -85,9 +88,10 @@ namespace app\core;
 
     protected function layoutContent()
     {
+        $layout = Application::$app->controller->layout;
         ob_start();
         //获取布局的 php 文件
-        include_once Application::$ROOT_DIR . "/views/layouts/main.php";
+        include_once Application::$ROOT_DIR . "/views/layouts/$layout.php";
         return ob_get_clean();
     }
 

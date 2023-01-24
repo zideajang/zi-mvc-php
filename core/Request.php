@@ -31,6 +31,17 @@ namespace app\core;
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
+    public function isPost()
+    {
+        
+        return $this->method() === 'post';
+    }
+
+    public function isGet()
+    {
+        return $this->method() === 'get';
+    }
+
     public function getBody()
     {
         $body = [];

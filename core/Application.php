@@ -16,8 +16,8 @@ namespace app\core;
     //需要 php 7.4 以上版本支持类型
     public Router $router;
     public Request $request;
-
     public Response $response;
+    public Controller $controller;
 
     public static Application $app;
     
@@ -30,6 +30,14 @@ namespace app\core;
         $this->response = new Response;
         //初始化 Router 对象
         $this->router = new Router($this->request,$this->response);
+    }
+
+    public function getController(){
+        return $this->controller;
+    }
+
+    public function setController($controller){
+        $this->controller = $controller;
     }
 
     public function run(){
