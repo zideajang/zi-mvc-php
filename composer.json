@@ -14,5 +14,7 @@
             "email": "zideajang@163.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
 }

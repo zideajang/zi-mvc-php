@@ -13,8 +13,19 @@ use app\core\Utility;
 
 // Utility::show(dirname(__DIR__));
 
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
+$config = [
+    'db' => [
+        'dsn' => $_ENV['DB_DSN'],
+        'user' => $_ENV['DB_USER'],
+        'password' => $_ENV['DB_PASSWORD'],
+    ]
+];
+
 // Application 应用类会来持有路由(route)的实例(对象)
-$app = new Application(dirname(__DIR__));
+$app = new Application(dirname(__DIR__),$config);
 // 路由，会将 url 作为 key 而对应调用方法作为 value
 // $app->router.get('/',function(){
 //     return '页面'

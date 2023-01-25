@@ -19,9 +19,11 @@ namespace app\core;
     public Response $response;
     public Controller $controller;
 
+    public Database $db;
+
     public static Application $app;
     
-    public function __construct($rootPath)
+    public function __construct($rootPath,$config)
     {
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
@@ -30,6 +32,8 @@ namespace app\core;
         $this->response = new Response;
         //初始化 Router 对象
         $this->router = new Router($this->request,$this->response);
+
+        $this->db = new Database($config['db']);
     }
 
     public function getController(){
