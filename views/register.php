@@ -9,8 +9,8 @@
 
 <div class="field">
   <label class="label">邮件地址</label>
-  <div class="control has-icons-left has-icons-right">
-    <input name="email" class="input is-success" type="email" placeholder="Text input" value="请输入有效邮件地址">
+  <div class="control">
+    <input name="email" class="input is-success" type="email" placeholder="请输入有效邮件地址">
   </div>
   <!-- <p class="help is-danger">This email is invalid</p> -->
   <!-- <p class="help is-success">This username is available</p> -->
@@ -18,16 +18,16 @@
 
 <div class="field">
   <label class="label">密码</label>
-  <div class="control has-icons-left has-icons-right">
-    <input name="password" class="input is-success" type="password" placeholder="Text input" value="请输入密码">
+  <div class="control">
+    <input name="password" class="input is-success" type="password" placeholder="请输入密码" >
   </div>
   <!-- <p class="help is-danger">This email is invalid</p> -->
   <!-- <p class="help is-success">This username is available</p> -->
 </div>
 <div class="field">
   <label class="label">确认密码</label>
-  <div class="control has-icons-left has-icons-right">
-    <input name="confirmPassword" class="input is-success" type="password" placeholder="Text input" value="请输入确认密码">
+  <div class="control">
+    <input name="confirmPassword" class="input is-success" type="password" placeholder="请输入确认密码" >
   </div>
   <!-- <p class="help is-danger">This email is invalid</p> -->
   <!-- <p class="help is-success">This username is available</p> -->

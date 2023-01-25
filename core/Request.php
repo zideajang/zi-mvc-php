@@ -61,7 +61,7 @@ namespace app\core;
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
-        Utility::show($body);
+        // Utility::show($body);
         return $body;
 
         // Utility::show($body);

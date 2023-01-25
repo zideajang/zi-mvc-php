@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 use app\core\Controller;
+use app\core\Utility;
+use app\models\RegisterModel;
 
 
 class AuthController extends Controller
@@ -14,12 +16,28 @@ class AuthController extends Controller
 
     public function register($request)
     {
-        $this->setLayout('auth');
+        $registerModel = new RegisterModel();
+        
         if($request->isPost()){
-            return "处理提交数据";
-        }
-        return $this->render('register');
-    }
+            
+            //数据加载
+            $registerModel->loadData($request->getBody());
+            //数据校验
 
-    
+            // Utility::show($registerModel);
+       
+            if($registerModel->validate() && $registerModel->register()){
+                return 'Success';
+            }
+
+            Utility::show($registerModel->errors);
+            return $this->render('register',[
+                'model' => $registerModel
+            ]);
+        }
+        $this->setLayout('auth');
+        return $this->render('register', [
+            'model' => $registerModel
+        ]);
+    }
 }
