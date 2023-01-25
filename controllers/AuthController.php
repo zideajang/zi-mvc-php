@@ -30,7 +30,7 @@ class AuthController extends Controller
                 return 'Success';
             }
 
-            Utility::show($registerModel->errors);
+            // Utility::show($registerModel->errors);
             return $this->render('register',[
                 'model' => $registerModel
             ]);

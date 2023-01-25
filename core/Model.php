@@ -79,4 +79,14 @@ abstract class Model{
             self::RULE_MATCH => '请输出内容给 {match} 字段内容保持一致',
         ];
     }
+
+    public function hasError($attribute)
+    {
+        return $this->errors[$attribute] ?? false;
+    }
+
+    public function getFirstError($attribute)
+    {
+        return $this->errors[$attribute][0] ?? false;
+    }
 }
